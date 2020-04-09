@@ -1,0 +1,25 @@
+plugins {
+    id 'maven-publish'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+project.group = 'co.alectronic'
+project.version = "${alectronicDependenciesVersion}"
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootDependenciesVersion}"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudDependenciesVersion}"
+    }
+    dependencies {
+        dependency "au.com.dius:pact-jvm-consumer-junit_2.12:${pactJvmVersion}"
+        dependency "com.github.tomakehurst:wiremock-jre8:${wiremockVersion}"
+        dependency "io.rest-assured:rest-assured:${restAssuredVersion}"
+        dependency "io.springfox:springfox-swagger-ui:${swaggerVersion}"
+        dependency "io.springfox:springfox-swagger2:${swaggerVersion}"
+        dependency "org.apache.commons:commons-email:${apacheCommonsEmailVersion}"
+        dependency "org.apache.commons:commons-text:${apacheCommonsTextVersion}"
+        dependency "commons-io:commons-io:${apacheCommonsIoVersion}"
+
+    }
+}
